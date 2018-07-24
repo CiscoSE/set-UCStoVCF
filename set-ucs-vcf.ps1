@@ -1,17 +1,4 @@
 ﻿<#
-
-.DESCRIPTION
-
-Script configures UCS C240 M5 servers to comply with requirements for 
-vCloud Foundation. These requirements are not validated by Cisco. All
-settings should be validated through VMWare before running this script.
-
-This script is design to fail by default. You must use the -Execute switch
-to run this script.
-
-This script assumes you are already connected to the server you want to
-modify. Please see the connect-imc commandlet for connecting to a server.
-
 .NOTES
 Copyright (c) 2018 Cisco and/or its affiliates.
 
@@ -27,6 +14,18 @@ reserved. Unless required by applicable law or agreed to separately in
 writing, software distributed under the License is distributed on an "AS
 IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
 or implied.
+.DESCRIPTION
+
+Script configures UCS C240 M5 servers to comply with requirements for 
+vCloud Foundation. These requirements are not validated by Cisco. All
+settings should be validated through VMWare before running this script.
+
+This script is design to fail by default. You must use the -Execute switch
+to run this script.
+
+This script assumes you are already connected to the server you want to
+modify. Please see the connect-imc commandlet for connecting to a server.
+
 #>
 [cmdletbinding()]
 param(
