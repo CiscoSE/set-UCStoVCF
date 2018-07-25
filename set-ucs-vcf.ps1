@@ -68,7 +68,7 @@ Start-ImcTransaction
 $mo_27  = $biosSettings | Get-ImcBiosNUMA | Set-ImcBiosNUMA -VpNUMAOptimized "enabled"
 $mo_19  = $biosSettings | Get-ImcBiosVfIntelVirtualizationTechnology | Set-ImcBiosVfIntelVirtualizationTechnology -VpIntelVirtualizationTechnology "enabled"
 $mo_39  = $biosSettings | Get-ImcBiosVfSataModeSelect | Set-ImcBiosVfSataModeSelect -VpSataModeSelect AHCI
-#$mo_36  = $biosSettings | Get-ImcBiosVfPSata | Set-ImcBiosVfPSata -VpPSata AHCI
+$mo_36  = $biosSettings | Get-ImcBiosVfPSata | Set-ImcBiosVfPSata -VpPSata AHCI
 
 #Additional Settings Recommended by Cisco Performance Tuning Guide
 $mo_8  = $biosSettings | Get-ImcBiosVfCPUPerformance | Set-ImcBiosVfCPUPerformance -VpCPUPerformance enterprise
@@ -86,39 +86,6 @@ $mo_11  = $biosSettings | Get-ImcBiosExecuteDisabledBit | Set-ImcBiosExecuteDisa
 $mo_25  = $biosSettings | Get-ImcBiosVfLOMPortOptionROM | Set-ImcBiosVfLOMPortOptionROM -VpLOMPort0State "Disabled" -VpLOMPort1State "Disabled" -VpLOMPortsAllState "Enabled"
 $mo_44  = $biosSettings | Get-ImcBiosVfUSBPortsConfig | Set-ImcBiosVfUSBPortsConfig -VpUsbPortFront "Disabled" -VpUsbPortInternal "Disabled" -VpUsbPortKVM "Disabled" -VpUsbPortRear "Disabled" -VpUsbPortSDCard "Disabled"
 
-#Settings I am not setting because they have been reset, and don't require special mention or attention
-#$mo_1  = $biosSettings | Get-ImcBiosVfAdjacentCacheLinePrefetch | Set-ImcBiosVfAdjacentCacheLinePrefetch -VpAdjacentCacheLinePrefetch "enabled"
-#$mo_2  = $biosSettings | Get-ImcBiosVfBootPerformanceMode | Set-ImcBiosVfBootPerformanceMode -VpBootPerformanceMode "Max Performance"
-#$mo_3  = $biosSettings | Get-ImcBiosVfCDNEnable | Set-ImcBiosVfCDNEnable -VpCDNEnable "Enabled"
-#$mo_4  = $biosSettings | Get-ImcBiosVfCmciEnable | Set-ImcBiosVfCmciEnable -VpCmciEnable "Enabled"
-#$mo_5  = $biosSettings | Get-ImcBiosVfConsoleRedirection | Set-ImcBiosVfConsoleRedirection -VpBaudRate "115200" -VpConsoleRedirection "disabled" -VpFlowControl "none" -VpTerminalType "vt100"
-#$mo_6  = $biosSettings | Get-ImcBiosVfCoreMultiProcessing | Set-ImcBiosVfCoreMultiProcessing -VpCoreMultiProcessing "all"
-#$mo_9  = $biosSettings | Get-ImcBiosVfDCUPrefetch | Set-ImcBiosVfDCUPrefetch -VpIPPrefetch "enabled" -VpStreamerPrefetch "enabled"
-#$mo_12  = $biosSettings | Get-ImcBiosVfExtendedAPIC | Set-ImcBiosVfExtendedAPIC -VpExtendedAPIC "Disabled"
-#$mo_13  = $biosSettings | Get-ImcBiosVfFRB2Enable | Set-ImcBiosVfFRB2Enable -VpFRB2Enable "enabled"
-#$mo_14  = $biosSettings | Get-ImcBiosVfHardwarePrefetch | Set-ImcBiosVfHardwarePrefetch -VpHardwarePrefetch "enabled"
-#$mo_15  = $biosSettings | Get-ImcBiosVfHWPMEnable | Set-ImcBiosVfHWPMEnable -VpHWPMEnable "HWPM Native Mode"
-#$mo_16  = $biosSettings | Get-ImcBiosVfIMCInterleave | Set-ImcBiosVfIMCInterleave -VpIMCInterleave "Auto"
-#$mo_21  = $biosSettings | Get-ImcBiosVfIPV6PXE | Set-ImcBiosVfIPV6PXE -VpIPV6PXE "Disabled"
-#$mo_22  = $biosSettings | Get-ImcBiosVfKTIPrefetch | Set-ImcBiosVfKTIPrefetch -VpKTIPrefetch "Enabled"
-#$mo_26  = $biosSettings | Get-ImcBiosVfMemoryMappedIOAbove4GB | Set-ImcBiosVfMemoryMappedIOAbove4GB -VpMemoryMappedIOAbove4GB "enabled"
-#$mo_28  = $biosSettings | Get-ImcBiosVfOSBootWatchdogTimer | Set-ImcBiosVfOSBootWatchdogTimer -VpOSBootWatchdogTimer "disabled"
-#$mo_29  = $biosSettings | Get-ImcBiosOSBootWatchdogTimerTimeoutPolicy | Set-ImcBiosOSBootWatchdogTimerTimeoutPolicy -VpOSBootWatchdogTimerPolicy "power-off"
-#$mo_30  = $biosSettings | Get-ImcBiosVfOSBootWatchdogTimerTimeout | Set-ImcBiosVfOSBootWatchdogTimerTimeout -VpOSBootWatchdogTimerTimeout "10-minutes"
-#$mo_31  = $biosSettings | Get-ImcBiosVfPackageCStateLimit | Set-ImcBiosVfPackageCStateLimit -VpPackageCStateLimit "C0 C1 State"
-#$mo_32  = $biosSettings | Get-ImcBiosVfPCISlotOptionROMEnable | Set-ImcBiosVfPCISlotOptionROMEnable -VpSlot1LinkSpeed "Auto" -VpSlot1State "Enabled" -VpSlot2LinkSpeed "Auto" -VpSlot2State "Enabled" -VpSlot3LinkSpeed "Auto" -VpSlot3State "Enabled" -VpSlot4LinkSpeed "Auto" -VpSlot4State "Enabled" -VpSlot5LinkSpeed "Auto" -VpSlot5State "Enabled" -VpSlot6LinkSpeed "Auto" -VpSlot6State "Enabled" -VpSlotFrontNvme1LinkSpeed "Auto" -VpSlotFrontNvme2LinkSpeed "Auto" -VpSlotMLOMLinkSpeed "Auto" -VpSlotMLOMState "Enabled" -VpSlotMRAIDLinkSpeed "Auto" -VpSlotMRAIDState "Enabled" -VpSlotN1State "Enabled" -VpSlotN2State "Enabled" -VpSlotRearNvme1LinkSpeed "Auto" -VpSlotRearNvme1State "Enabled" -VpSlotRearNvme2LinkSpeed "Auto" -VpSlotRearNvme2State "Enabled" -XtraProperty @{VpSlotSIOC2LinkSpeed=""; VpSlotIOEMezz1LinkSpeed=""; VpSlotIOEMezz1State=""; VpSlotIOENVMe1LinkSpeed=""; VpSlotIOENVMe2LinkSpeed=""; VpSlotSBMezz1State=""; VpSlotSIOC1LinkSpeed=""; VpIOESlot2State=""; VpSlotIOENVMe1State=""; VpSlotMLinkSpeed=""; VpSlotSIOC1State=""; VpIOESlot1State=""; VpSlotSBNVMe1LinkSpeed=""; VpSlotSBMezz2State=""; VpSlotSIOC2State=""; VpSlotSBNVMe1State=""; VpSlotIOESlot1LinkSpeed=""; VpSlotSBMezz1LinkSpeed=""; VpSlotSBMezz2LinkSpeed=""; VpSlotIOENVMe2State=""; VpSlotIOESlot2LinkSpeed=""; }
-#$mo_33  = $biosSettings | Get-ImcBiosVfPowerOnPasswordSupport | Set-ImcBiosVfPowerOnPasswordSupport -VpPOPSupport "Disabled"
-#
-#
-#$mo_37  = $biosSettings | Get-ImcBiosVfPStateCoordType | Set-ImcBiosVfPStateCoordType -VpPStateCoordType "HW ALL"
-#$mo_38  = $biosSettings | Get-ImcBiosVfPwrPerfTuning | Set-ImcBiosVfPwrPerfTuning -VpPwrPerfTuning "os"
-#$mo_40  = $biosSettings | Get-ImcBiosVfSelectMemoryRASConfiguration | Set-ImcBiosVfSelectMemoryRASConfiguration -VpSelectMemoryRASConfiguration "maximum-performance"
-#$mo_41  = $biosSettings | Get-ImcBiosVfSubNumaClustering | Set-ImcBiosVfSubNumaClustering -VpSNC "Disabled"
-#$mo_42  = $biosSettings | Get-ImcBiosVfTPMControl | Set-ImcBiosVfTPMControl -VpTPMControl "enabled"
-#$mo_43  = $biosSettings | Get-ImcBiosVfTXTSupport | Set-ImcManagedObject -PropertyMap @{VpTXTSupport="Disabled"; }
-#$mo_45  = $biosSettings | Get-ImcBiosVfVgaPriority | Set-ImcBiosVfVgaPriority -VpVgaPriority "Onboard"
-#$mo_46  = $biosSettings | Get-ImcBiosVfWorkLoadConfig | Set-ImcBiosVfWorkLoadConfig -VpWorkLoadConfig "I/O Sensitive"
-#$mo_47  = $biosSettings | Get-ImcBiosVfXPTPrefetch | Set-ImcBiosVfXPTPrefetch -VpXPTPrefetch "Disabled"
 Complete-ImcTransaction -Force
 
 #Set to Legacy boot mode. Default for M5 is UEFI
